@@ -5,7 +5,7 @@ function btnClicked() {
   // Calculate Inputs
   LetterGrade(
     document.getElementById("CS").value,
-    (document.getElementById("output").innerHTML = msg)
+    document.getElementById("output").innerHTML
   );
   LetterGrade(document.getElementById("SP1").value);
   LetterGrade(document.getElementById("SP2").value);
@@ -17,7 +17,6 @@ function LetterGrade(x, y, z) {
   if (x >= 0 && x <= 49) {
     console.log("F");
     document.getElementById(y);
-    let msg = "F";
   } else if (x >= 50 && x <= 59) {
     console.log("D");
   } else if (x >= 60 && x <= 74) {
