@@ -33,6 +33,7 @@ function btnClicked() {
 // Calculate Letter Grade By User Input
 function getMathLetter(input) {
   let element = document.getElementById(input);
+
   if (element.value <= 49) {
     return "F";
   } else if (element.value >= 50 && element.value <= 59) {
