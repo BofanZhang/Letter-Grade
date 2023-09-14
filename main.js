@@ -22,12 +22,17 @@ function btnClicked() {
   document.getElementById("output4").innerHTML = msg5;
 
   // Calculate Final Percentage
-  let AverageNum = calculateFinalPercent("CS", "SP1", "SP2", "CS2", "ProjectA");
-  document.getElementById("output5").innerHTML = AverageNum + "%";
-
+  let msg6 = AverageNum();
+  document.getElementById("output6").innerHTML = msg6;
+  let AverageNumber =
+    (+document.getElementById("CS").value +
+      +document.getElementById("CS2").value +
+      +document.getElementById("SP1").value +
+      +document.getElementById("SP2").value +
+      +document.getElementById("ProjectA").value) /
+    5;
+  document.getElementById("output5").innerHTML = AverageNumber + "%";
   // Calculate Final Letter Grade
-  let AverageLet = calculateFinalLet("CS", "SP1", "SP2", "CS2", "ProjectA");
-  document.getElementById("output6").innerHTML = AverageLet;
 }
 
 // Calculate Letter Grade By User Input
@@ -47,38 +52,24 @@ function getMathLetter(input) {
   }
 }
 
-// Calculate Total Average Letter Grade by User Input
-function calculateFinalLet(input, input1, input2, input3, input4) {
-  let total = Math.round(
-    (+document.getElementById(input).value +
-      +document.getElementById(input1).value +
-      +document.getElementById(input2).value +
-      +document.getElementById(input3).value +
-      +document.getElementById(input4).value) /
-      5
-  );
-  if (total <= 49) {
+function AverageNum() {
+  let AverageNum =
+    (+document.getElementById("CS").value +
+      +document.getElementById("CS2").value +
+      +document.getElementById("SP1").value +
+      +document.getElementById("SP2").value +
+      +document.getElementById("ProjectA").value) /
+    5;
+
+  if (AverageNum <= 49) {
     return "F";
-  } else if (total >= 50 && total <= 59) {
+  } else if (AverageNum >= 50 && AverageNum <= 59) {
     return "D";
-  } else if (total >= 60 && total <= 74) {
+  } else if (AverageNum >= 60 && AverageNum <= 74) {
     return "C";
-  } else if (total >= 75 && total <= 89) {
+  } else if (AverageNum >= 75 && AverageNum <= 89) {
     return "B";
-  } else if (total >= 90) {
+  } else if (AverageNum >= 90) {
     return "A";
   }
-}
-
-// Calculate Total Average Number by User Input
-function calculateFinalPercent(input, input1, input2, input3, input4) {
-  let total = Math.round(
-    (+document.getElementById(input).value +
-      +document.getElementById(input1).value +
-      +document.getElementById(input2).value +
-      +document.getElementById(input3).value +
-      +document.getElementById(input4).value) /
-      5
-  );
-  return total;
 }
